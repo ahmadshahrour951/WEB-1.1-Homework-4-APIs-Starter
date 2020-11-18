@@ -90,15 +90,11 @@ def results():
 
 def get_min_temp(results):
     """Returns the minimum temp for the given hourly weather objects."""
-    # TODO: Fill in this function to return the minimum temperature from the
-    # hourly weather data.
-    pass
+    return min(results, key=lambda hr_weather: hr_weather['temp'])['temp']
 
 def get_max_temp(results):
     """Returns the maximum temp for the given hourly weather objects."""
-    # TODO: Fill in this function to return the maximum temperature from the
-    # hourly weather data.
-    pass
+    return max(results, key=lambda hr_weather: hr_weather['temp'])['temp']
 
 def get_lat_lon(city_name):
     geolocator = Nominatim(user_agent='Weather Application')
@@ -135,8 +131,6 @@ def historical_results():
     result_current = result_json['current']
     result_hourly = result_json['hourly']
 
-    # TODO: Replace the empty variables below with their appropriate values.
-    # You'll need to retrieve these from the 'result_current' object above.
     context = {
         'city': city,
         'date': date_obj,
